@@ -7,8 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-
-    <h1>Página de Apresentação foda!</h1>
     
+    <h1>As páginas onde os usuários terão visibilidade ficam na View!</h1>
+
 </body>
 </html>
