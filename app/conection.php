@@ -2,7 +2,7 @@
 
 //Aqui fica a conexão com o banco de dados principal
 
-    $db_name = "";
+    $db_name = "moviestar";
     $db_host = "localhost";
     $db_user = "root";
     $db_pass = "";
