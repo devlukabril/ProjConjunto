@@ -78,3 +78,55 @@ body {
     text-decoration: underline;
   }
   
+
+
+  .sidebar {
+    background-color: #4CAF50;
+    color: #fff;
+    height: 100vh;
+    padding: 20px;
+  }
+
+  .sidebar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar li {
+    margin-bottom: 10px;
+  }
+
+  .sidebar li a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .video-player {
+    max-width: 100%;
+  }
+
+  .top-menu {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+  }
+
+  .top-menu .user-profile {
+    float: right;
+  }
+
+  .top-menu .user-profile a {
+    color: #fff;
+    text-decoration: none;
+  }
