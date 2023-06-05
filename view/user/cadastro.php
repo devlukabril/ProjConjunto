@@ -1,3 +1,8 @@
+<?php 
+require_once './controller/RegisterProcess.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +19,7 @@
   <div class="container">
     <h2>Formulário de Cadastro</h2>
     <form>
-      <div class="form-group">
+      <div class="form-group" method="POST" action="RegisterProcess.php">
         <label for="name">Nome:</label>
         <input type="text" id="name" name="name" required>
       </div>
@@ -31,8 +36,8 @@
         <input type="password" id="password" name="password" required>
       </div>
       <div class="form-group">
-        <label for="repeat-password">Repetir Senha:</label>
-        <input type="password" id="repeat-password" name="repeat-password" required>
+        <label for="repeatpassword">Repetir Senha:</label>
+        <input type="password" id="repeatpassword" name="repeatpassword" required>
       </div>
       <div class="form-group">
         <input type="submit" value="Cadastrar">
