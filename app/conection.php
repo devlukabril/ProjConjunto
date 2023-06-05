@@ -2,17 +2,26 @@
 
 //Aqui fica a conexão com o banco de dados principal
 
-    $db_name = "moviestar";
-    $db_host = "localhost";
-    $db_user = "root";
-    $db_pass = "";
+class Database {
 
-    $conn = new PDO("mysql:dbname=". $db_name . ";host=". $db_host, $db_user, $db_pass);
 
-    //Habilita Erros do PDO
+    protected const SERVIDOR = "localhost";
+    protected const USUARIO = "root";
+    protected const SENHA = "";
+    protected const DB = "moviestar";
 
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    public function __construct(protected $db){
 
+        try{
+            $this->db = new PDO('mysql:host='.self::SERVIDOR.';dbname='.self::DB.'', self::USUARIO, self::SENHA);
+            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
+        catch(PDOException $e){
+
+            echo 'ERRO: ' . $e->getMessage();
+        }
+
+    }
+}
 
 ?>
