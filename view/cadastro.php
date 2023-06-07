@@ -1,6 +1,6 @@
 <?php
 
-require '../controller/RegisterProcess.php';
+// require '../controller/RegisterProcess.php';
 
 ?>
 
@@ -19,26 +19,26 @@ require '../controller/RegisterProcess.php';
 <body>
   <div class="container">
     <h2>Formulário de Cadastro</h2>
-    <form>
-      <div class="form-group" method="POST" action="RegisterProcess.php">
+    <form id="caduser">
+      <div class="form-group">
         <label for="name">Nome:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" >
       </div>
       <div class="form-group">
         <label for="lastname">Sobrenome:</label>
-        <input type="text" id="lastname" name="lastname" required>
+        <input type="text" id="lastname" name="lastname" >
       </div>
       <div class="form-group">
         <label for="email">Endereço de E-mail:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" >
       </div>
       <div class="form-group">
         <label for="password">Senha:</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" name="password" >
       </div>
       <div class="form-group">
         <label for="repeatpassword">Repetir Senha:</label>
-        <input type="password" id="repeatpassword" name="repeatpassword" required>
+        <input type="password" id="repeatpassword" name="repeatpassword" >
       </div>
       <div class="form-group">
         <input type="submit" value="Cadastrar">
@@ -59,6 +59,33 @@ require '../controller/RegisterProcess.php';
     </div>
     <p>Todos os direitos reservados &copy; 2023 Minha Empresa</p>
   </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>
+      $('#caduser').submit(function(e) {
+    e.preventDefault();
+    var formulario = $(this);
+    alert(formulario.serialize());
+    var retorno = inserirFormulario(formulario);
+    });
+
+    function inserirFormulario(dados) {
+        $.ajax({
+            type: "POST",
+            data: dados.serialize(),
+            url: "../controller/RegisterProcess.php",
+            async: false
+        }).done(sucesso).fail(falha);
+    }
+
+    function sucesso(data) {
+        console.log(data);
+    }
+
+    function falha() {
+        console.log("erro");
+    }
+
+  </script>
 </body>
 
 </html>

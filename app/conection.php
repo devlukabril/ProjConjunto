@@ -1,9 +1,5 @@
-<?php 
-
-//Aqui fica a conexão com o banco de dados principal
-
+<?php
 class Database {
-
     protected $db;
 
     protected const SERVIDOR = "localhost";
@@ -12,17 +8,16 @@ class Database {
     protected const DB = "moviestar";
 
     public function __construct(){
-
-        try{
+        try {
             $this->db = new PDO('mysql:host='.self::SERVIDOR.';dbname='.self::DB.'', self::USUARIO, self::SENHA);
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        }
-        catch(PDOException $e){
-
+        } catch(PDOException $e) {
             echo 'ERRO: ' . $e->getMessage();
         }
+    }
 
+    public function getConnection() {
+        return $this->db;
     }
 }
-
 ?>
