@@ -1,3 +1,14 @@
+<?php 
+session_start();
+  if (!isset($_SESSION['email']) || !isset($_SESSION['password'])) {
+    unset($_SESSION['email']);
+    unset($_SESSION['password']);
+    header('location: login.php');
+    exit;
+  }
+  $logado = $_SESSION['email'];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +22,11 @@
     <div class="row">
       <div class="col-md-12 top-menu">
         <div class="user-profile">
-          <span>Bem-vindo, Usuário</span>
+          <?php echo "Bem vindo <u>$logado</u>" ?>
+          <br>
           <a href="#">Perfil</a>
+          <br>
+          <a href="sair.php">Sair</a>
         </div>
       </div>
     </div>

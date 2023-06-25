@@ -11,7 +11,7 @@ class Database {
     protected const SENHA = "";
     protected const DB = "moviestar";
 
-    public function __construct(){
+    public function __construct($db){
 
         try{
             $this->db = new PDO('mysql:host='.self::SERVIDOR.';dbname='.self::DB.'', self::USUARIO, self::SENHA);
@@ -23,6 +23,15 @@ class Database {
         }
 
     }
+
+    public function getDb(){
+        return $this->db;
+    }
+
+
 }
+
+
+
 
 ?>

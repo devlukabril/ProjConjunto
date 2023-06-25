@@ -1,9 +1,3 @@
-<?php
-
-require '../controller/RegisterProcess.php';
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,8 +13,8 @@ require '../controller/RegisterProcess.php';
 <body>
   <div class="container">
     <h2>Formulário de Cadastro</h2>
-    <form>
-      <div class="form-group" method="POST" action="RegisterProcess.php">
+    <form method="POST" action="authcad.php">
+      <div class="form-group">
         <label for="name">Nome:</label>
         <input type="text" id="name" name="name" required>
       </div>
@@ -37,8 +31,8 @@ require '../controller/RegisterProcess.php';
         <input type="password" id="password" name="password" required>
       </div>
       <div class="form-group">
-        <label for="repeatpassword">Repetir Senha:</label>
-        <input type="password" id="repeatpassword" name="repeatpassword" required>
+        <label for="rptpassword">Repetir Senha:</label>
+        <input type="password" id="rptpassword" name="rptpassword" required>
       </div>
       <div class="form-group">
         <input type="submit" value="Cadastrar">
