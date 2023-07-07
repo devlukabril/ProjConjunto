@@ -37,22 +37,26 @@ class UserDao Implements UserDaoInterface{
 
     }
 
-    public function autenticateUser($email, $password){
-        $sql = $this->db->prepare("SELECT * FROM users WHERE email = :email");
-        $sql->bindValue(':email', $email);
-        $sql->execute();
-
-        $user = $sql->fetch(PDO::FETCH_ASSOC);
-
-        if ($user) {
-            
-            if (password_verify($password, $user['password'])) {
-                
-                return $user;
-            }
-        }
+    public function autenticateUser($email, $password)
+{
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         return false;
     }
+
+    $sql = $this->db->prepare("SELECT * FROM users WHERE email = :email");
+    $sql->bindValue(':email', $email);
+    $sql->execute();
+
+    $user = $sql->fetch(PDO::FETCH_ASSOC);
+
+    if ($user && password_verify($password, $user['password'])) {
+        return $user;
+    }
+
+    return false;
+}
+
+
 
     public function findByEmail($email){
         $sql = $this->db->prepare("SELECT * FROM users WHERE email = :email");

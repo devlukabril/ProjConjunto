@@ -11,12 +11,12 @@ if (isset($_GET['error']) && $_GET['error'] === 'invalid_credentials') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="view/css/style.css">
 </head>
 <body>
     <div class="container">
     <h2>Login</h2>
-    <form method="POST" action="authuser.php">
+    <form method="POST" action="view/authuser.php">
       <div class="form-group">
         <label for="email">Usuário:</label>
         <input type="text" id="email" name="email" required>
@@ -27,6 +27,9 @@ if (isset($_GET['error']) && $_GET['error'] === 'invalid_credentials') {
       </div>
       <div class="form-group">
         <input type="submit" value="Entrar" name="submit">
+        <a href="cadastro.php">Cadastre-se</a>
+        <br>
+        <a href="forget.php">Esqueci minha senha.</a>
       </div>
     </form>   
 </body>

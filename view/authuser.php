@@ -4,16 +4,13 @@ require_once '../dao/UserDao.php';
 
 $UserDao = new UserDao();
 
-if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password'])){
-
+if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        header('location:../error.html');
-        exit;
-    }
-    if ($UserDao->autenticateUser($email, $password)) {
+    $user = $UserDao->autenticateUser($email, $password);
+
+    if ($user) {
         $_SESSION['email'] = $email;
         $_SESSION['password'] = $password;
         header('location: dashboard.php');
@@ -24,10 +21,10 @@ if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password
         header('location: login.php?error=invalid_credentials');
         exit;
     }
-}else{
+} else {
     unset($_SESSION['email']);
     unset($_SESSION['password']);
-    header('location:../error.html');
+    header('location: ../error.html');
     exit;
 }
 
